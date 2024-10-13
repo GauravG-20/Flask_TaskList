@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="heading">Task Master</h1>
+
+    <div class="task-table-container">
+        <table class="task-table">
+            <thead>
+                <tr>
+                    <th>Tasks</th>
+                    <th>Created</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.content }}</td>
+                        <td>{{ task.date_created.strftime('%H:%M:%S %d-%m-%Y') }}</td>
+                        <td>{{ task.last_updated.strftime('%H:%M:%S %d-%m-%Y') }}</td>
+                        <td>
+                            <a href="/update/{{task.id}}">
+                                <button class="btn update-btn">Update</button>
+                            </a>
+                            <a href="/delete/{{task.id}}">
+                                <button class="btn delete-btn">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="task-input-row">
+        <form action="/" method="POST" class="task-form">
+            <input type="text" name="content" id="content" class="task-input" placeholder="Enter new task">
+            <input type="submit" value="Add Task" class="btn add-btn">
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+</div>
+{% endblock %}
+
+<script>
+    function validateInput(){
+        const content = document.getElementById('content').value.trim();
+        const errorMessage = document.getElementById('error-message');
+
+        if (content == '')
+            errorMessage.innerText = 'Task cannot be empty!!'
+        else
+            errorMessage.innerText = ''
+    }
+</script>

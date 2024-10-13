@@ -1,0 +1,105 @@
+/* Container styling */
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Heading */
+.heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table styling */
+.task-table-container {
+    overflow-x: auto;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.task-table th, .task-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.task-table th {
+    background-color: #f4f4f4;
+}
+
+/* Flexbox for input and button alignment */
+.task-input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.task-form {
+    display: flex;
+    width: 100%;
+}
+
+.task-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.update-btn {
+    background-color: #007bff;
+}
+
+.update-btn:hover {
+    background-color: #0069d9;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    margin-top: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.add-btn {
+    background-color: #28a745;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .task-input-row {
+        flex-direction: column;
+    }
+
+    .task-input {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
